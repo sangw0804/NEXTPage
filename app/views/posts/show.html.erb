@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<br><br>
+<% provide(:title, "Show Post")%>
+<div style="margin: 20px;">
+<p>
+  <strong>글 제목 : </strong>
+  <%= @post.title %>
+</p>
+
+<div style="word-break:break-all; padding:20px; border-bottom : 1px solid lightgray; border-top : 1px solid lightgray;">
+  <%= @post.content %>
+</div>
+<% @post.comments.each do |c| %>
+<div style="margin:10px; padding-right:12px;" class="input-group mb-3"><div class="form-control"><%= c.content %></div><%= link_to '삭제', post_comment_path(@post.id, c.id), method: 'delete', class: "btn btn-outline-danger"%></div>
+<% end%>
+
+<%= form_for Comment.new , url: post_comments_path(@post.id) do |f| %>
+<div class="input-group mb-3" style="margin-top: 10px;">
+<%=  f.text_area(:content, {class: "form-control"}) %>
+<div class="input-group-append">
+<%=  f.submit("작성완료",{class: "btn btn-outline-secondary"})%>
+</div>
+</div>
+<%  end%>
+
+</div>
+<br><br>

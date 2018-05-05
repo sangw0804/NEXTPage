@@ -1,0 +1,12 @@
+<nav class="navbar d-flex flex-row justify-content-between fixed-top" style="background-color: rgb(120,9,27);">
+    <%= link_to 'NEXT x LIKELION', root_path, class: "navbar-brand", style: "color: rgb(213,202,187); font-size:1.5rem;"%>
+    <%= image_tag("likelion_logo",size: "36x45")%>
+    <ul class="navbar-nav d-flex flex-row ">
+      <li class="nav-item active">
+        <a class="d-inline-flex nav-link" style="color: rgb(213,202,187); margin-right: 5px;" href="/about">About |<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <%= link_to '게시판', posts_path, class: "d-inline-flex nav-link", style: "color: rgb(213,202,187);"%>
+      </li>
+    </ul>
+</nav>
