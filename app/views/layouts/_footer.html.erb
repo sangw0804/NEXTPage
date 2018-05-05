@@ -9,6 +9,10 @@
     <%= link_to '뒤로가기', posts_path ,style: "color: rgb(213,202,187);" %>
     <% elsif request.url == "http://localhost:3000/posts/new"%>
     <%= link_to '뒤로가기', posts_path,style: "color: rgb(213,202,187);" %>
+    <% elsif request.url == "http://localhost:3000/about" %>
+    <div style="color: rgb(213,202,187);">후원문의 : 심건우 010-9876-5432</div>
+    <% else %>
+    <div style="color: rgb(213,202,187);">Since 2014</div>
     <% end%>
 </div>
     <ul class="navbar-nav d-flex flex-row ">
