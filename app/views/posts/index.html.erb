@@ -1,10 +1,9 @@
-<p id="notice"><%= notice %></p>
 <% provide(:title, "Posts")%>
-<h1>Posts</h1>
 
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">번호</th>
       <th scope="col" style="width: 60%;">제목</th>
       <th scope="col">작성일자</th>
       <th scope="col" colspan="2" ></th>
@@ -14,15 +13,14 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr scope="row">
-        <td><%= link_to "#{post.title}", post , style: "color: black; width: 60%;"%></td>
+        <td><%= post.id%></td>
+        <td><%= link_to "#{post.title}", post , style: "color: black; width: 60%;"%><%=  image_tag('new_logo', style:"width:35px;") if post.created_at.to_s[8..10].to_i + 1 >= DateTime.now.to_s[8..10].to_i %></td>
         <td><%= post.created_at.to_s[0..19]%></td>
         <td><%= link_to '수정하기', edit_post_path(post) %></td>
-        <td><%= link_to '삭제하기', post, method: :delete, data: { confirm: 'Are you sure?' }, style: "color: tomato;" %></td>
+        <td><%= link_to '삭제하기', post, method: :delete, data: { confirm: '정말?' }, style: "color: tomato;" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-

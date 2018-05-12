@@ -1,23 +1,27 @@
-<nav class="navbar d-flex flex-row justify-content-between fixed-bottom" style="background-color: rgb(120,9,27);">
-<div style="color:rgb(213,202,187);">
+<nav class="navbar d-flex flex-row justify-content-between fixed-bottom crimsonColor" >
+<div class="leftDown_toggle">
     <% if request.url == "http://localhost:3000/posts"%>
-    <%= link_to '새 글 쓰기', new_post_path ,style: "color: rgb(213,202,187);"%>
+    <%= link_to '새 글 쓰기', new_post_path ,class:"leftDown_toggle"%>
     <% elsif request.url =~ /http:\/\/localhost:3000\/posts\/\d\/edit/ %>
-    <%= link_to '수정취소', @post, style: "color: rgb(213,202,187);" %>
+    <%= link_to '수정취소', @post, class:"leftDown_toggle" %>
     <% elsif request.url =~ /http:\/\/localhost:3000\/posts\/\d/ %>
-    <%= link_to '글 수정하기', edit_post_path(@post), style: "color: rgb(213,202,187);" %> |
-    <%= link_to '뒤로가기', posts_path ,style: "color: rgb(213,202,187);" %>
+    <%= link_to '글 수정하기', edit_post_path(@post), class:"leftDown_toggle" %> |
+    <%= link_to '뒤로가기', posts_path ,class:"leftDown_toggle" %>
     <% elsif request.url == "http://localhost:3000/posts/new"%>
-    <%= link_to '뒤로가기', posts_path,style: "color: rgb(213,202,187);" %>
+    <%= link_to '뒤로가기', posts_path,class:"leftDown_toggle" %>
     <% elsif request.url == "http://localhost:3000/about" %>
-    <div style="color: rgb(213,202,187);">후원문의 : 심건우 010-9876-5432</div>
+    <div class="leftDown_toggle">후원문의 : 심건우 010-9876-5432</div>
     <% else %>
-    <div style="color: rgb(213,202,187);">Since 2014</div>
+    <div class="leftDown_toggle">Since 2014</div>
     <% end%>
+</div>
+<div class=" leftDown_toggle">
+<%= alert%>
+<%= notice %>
 </div>
     <ul class="navbar-nav d-flex flex-row ">
       <li class="nav-item active">
-        <div class="d-inline-flex nav-link" style="color: rgb(213,202,187);">대표 : 안운장 010-1234-5678<span class="sr-only">(current)</span></div>
+        <div class="d-inline-flex nav-link leftDown_toggle">대표 : 안운장 010-1234-5678<span class="sr-only">(current)</span></div>
       </li>
     </ul>
 </nav>

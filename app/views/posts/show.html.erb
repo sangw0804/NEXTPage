@@ -2,12 +2,15 @@
 <br><br>
 <% provide(:title, "Show Post")%>
 <div style="margin: 20px;">
-<p>
+<div class="d-flex justify-content-between" style="margin-bottom:10px;">
+<div>
   <strong>글 제목 : </strong>
   <%= @post.title %>
-</p>
+  </div>
+  <div><%= @post.updated_at.to_s[0..19]%></div>
+</div>
 
-<div style="word-break:break-all; padding:20px; border-bottom : 1px solid lightgray; border-top : 1px solid lightgray;">
+<div class="content">
   <%= @post.content %>
 </div>
 <% @post.comments.each do |c| %>
